@@ -1817,8 +1817,9 @@ GameObject:
   - component: {fileID: 559288615}
   - component: {fileID: 559288614}
   - component: {fileID: 559288613}
+  - component: {fileID: 559288616}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1937,6 +1938,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &559288616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559288612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 702d396eacc9c7c47b59108cec1ba3ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newSprite: {fileID: -1141582370, guid: d8e692e749e4e6a4599d2b108277a582, type: 3}
+  spriteRenderer: {fileID: 559288614}
 --- !u!1001 &560785455
 PrefabInstance:
   m_ObjectHideFlags: 0
