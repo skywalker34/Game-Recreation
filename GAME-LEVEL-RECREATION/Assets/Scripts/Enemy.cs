@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
 {
     public Transform target;
     public NavMeshAgent agent;
+    public Vector2 shootingDirection;
 
     // Start is called before the first frame update
     void Start()
@@ -24,28 +25,26 @@ public class Enemy : MonoBehaviour
         Vector2 targetPos = target.position;
         Vector2 currentPos = transform.position;
 
-        //if (Mathf.Abs(targetPos.y - currentPos.y) > 0)
-        //{
-        //    Debug.Log("x: ");
-        //    Debug.Log(targetPos.y);
-        //    targetPos.x = currentPos.x;
-        //}
-        //else
-        //{
-        //    Debug.Log("y: ");
-        //    Debug.Log(targetPos.y);
-        //    targetPos.y = currentPos.y;
-        //}
-        //if (Mathf.Abs(agent.velocity.x) > Mathf.Abs(agent.velocity.y))
-        //{
-        //    Debug.Log("x: ");
-        //    Debug.Log(agent.velocity.x);
-        //}
-        //else
-        //{
-        //    Debug.Log("y: ");
-        //    Debug.Log(agent.velocity.y);
-        //}
+        if (agent.velocity.y >= 0 && Mathf.Abs(agent.velocity.x) < Mathf.Abs(agent.velocity.y))
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+            shootingDirection = Vector2.up;
+        }
+        else if (agent.velocity.x < 0 && Mathf.Abs(agent.velocity.x) > Mathf.Abs(agent.velocity.y))
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 90);
+            shootingDirection = Vector2.left;
+        }
+        else if (agent.velocity.y < 0 && Mathf.Abs(agent.velocity.x) < Mathf.Abs(agent.velocity.y))
+        {
+            transform.rotation = Quaternion.Euler(0, 0, -180);
+            shootingDirection = Vector2.down;
+        }
+        else if (agent.velocity.x >= 0 && Mathf.Abs(agent.velocity.x) > Mathf.Abs(agent.velocity.y))
+        {
+            transform.rotation = Quaternion.Euler(0, 0, -90);
+            shootingDirection = Vector2.right;
+        }
 
         agent.SetDestination(targetPos);
 
