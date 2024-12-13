@@ -8,6 +8,9 @@ public class Enemy : MonoBehaviour
     public Transform target;
     public NavMeshAgent agent;
     public Vector2 shootingDirection;
+    public Sprite[] spriteArray;  // for dead animation
+   public SpriteRenderer spriteRenderer;
+   int numonArray; // for sprite
 
     // Start is called before the first frame update
     void Start()
@@ -17,12 +20,15 @@ public class Enemy : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
+
+        Vector2 targetPos = target.position; //placed it here so after shooting dead wont keep moving to base
+          agent.SetDestination(targetPos);
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector2 targetPos = target.position;
+       
         Vector2 currentPos = transform.position;
 
         if (agent.velocity.y >= 0 && Mathf.Abs(agent.velocity.x) < Mathf.Abs(agent.velocity.y))
@@ -46,7 +52,38 @@ public class Enemy : MonoBehaviour
             shootingDirection = Vector2.right;
         }
 
-        agent.SetDestination(targetPos);
+     
 
+    }
+    //Detect collisions between the GameObjects with Colliders attached
+     void OnCollisionEnter2D(Collision2D bullet)
+    {
+        if (bullet.gameObject.tag == "Bullet") {
+
+            agent.SetDestination(transform.position);
+           DiedSprite();
+           Invoke("DiedSprite", 0.5f);
+            Invoke("DiedSprite", 1.0f);
+
+            
+     
+        }
+    }
+
+    void DiedSprite()
+    {
+        
+             spriteRenderer.sprite = spriteArray[numonArray]; 
+             numonArray++;
+
+             if (numonArray == 2)
+             {
+                  Invoke("DeadBoi", 0.5f);
+             }
+    
+    }
+    void DeadBoi()
+    {
+        Destroy(gameObject);
     }
 }
