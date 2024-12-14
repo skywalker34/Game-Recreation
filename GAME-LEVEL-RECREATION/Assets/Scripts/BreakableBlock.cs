@@ -5,6 +5,9 @@ using UnityEngine;
 public class BreakableBlock : MonoBehaviour
 {
     int hit;
+     public Sprite[] spriteArray;  // for dead animation
+    public SpriteRenderer spriteRenderer;
+    int numonArray; // for sprite
     // Start is called before the first frame update
     void Start()
     {
@@ -24,10 +27,27 @@ public class BreakableBlock : MonoBehaviour
            
            hit++;
            if (hit == 2){
-            Destroy(gameObject);
-            Debug.Log("Hit");
+            DiedSprite();
+            Invoke("DiedSprite", 0.1f);
+            Invoke("DiedSprite", 0.2f);
            }
      
         }
+    }
+    void DiedSprite()
+    {
+        
+             spriteRenderer.sprite = spriteArray[numonArray]; 
+             numonArray++;
+
+             if (numonArray == 2)
+             {
+                  Invoke("DeadBoi", 0.5f);
+             }
+    
+    }
+    void DeadBoi()
+    {
+        Destroy(gameObject);
     }
 }

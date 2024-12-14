@@ -1641,8 +1641,12 @@ MonoBehaviour:
   - {fileID: -656663953, guid: d8e692e749e4e6a4599d2b108277a582, type: 3}
   - {fileID: 221983367, guid: d8e692e749e4e6a4599d2b108277a582, type: 3}
   - {fileID: -730679359, guid: d8e692e749e4e6a4599d2b108277a582, type: 3}
+  - {fileID: 529551193, guid: d8e692e749e4e6a4599d2b108277a582, type: 3}
   spriteRenderer: {fileID: 427998631}
   deathSound: {fileID: 510570768}
+  bulletPrefab: {fileID: 0}
+  shootingPoint: {fileID: 0}
+  shootInterval: 0.01
 --- !u!212 &427998631
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4158,8 +4162,12 @@ MonoBehaviour:
   - {fileID: -656663953, guid: d8e692e749e4e6a4599d2b108277a582, type: 3}
   - {fileID: 221983367, guid: d8e692e749e4e6a4599d2b108277a582, type: 3}
   - {fileID: -730679359, guid: d8e692e749e4e6a4599d2b108277a582, type: 3}
+  - {fileID: 529551193, guid: d8e692e749e4e6a4599d2b108277a582, type: 3}
   spriteRenderer: {fileID: 987859060}
   deathSound: {fileID: 400136862}
+  bulletPrefab: {fileID: 0}
+  shootingPoint: {fileID: 0}
+  shootInterval: 0.01
 --- !u!212 &987859060
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5707,8 +5715,12 @@ MonoBehaviour:
   - {fileID: -656663953, guid: d8e692e749e4e6a4599d2b108277a582, type: 3}
   - {fileID: 221983367, guid: d8e692e749e4e6a4599d2b108277a582, type: 3}
   - {fileID: -730679359, guid: d8e692e749e4e6a4599d2b108277a582, type: 3}
+  - {fileID: 529551193, guid: d8e692e749e4e6a4599d2b108277a582, type: 3}
   spriteRenderer: {fileID: 1194715659}
   deathSound: {fileID: 707852073}
+  bulletPrefab: {fileID: 0}
+  shootingPoint: {fileID: 0}
+  shootInterval: 0.01
 --- !u!212 &1194715659
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5886,8 +5898,12 @@ MonoBehaviour:
   - {fileID: -656663953, guid: d8e692e749e4e6a4599d2b108277a582, type: 3}
   - {fileID: 221983367, guid: d8e692e749e4e6a4599d2b108277a582, type: 3}
   - {fileID: -730679359, guid: d8e692e749e4e6a4599d2b108277a582, type: 3}
+  - {fileID: 529551193, guid: d8e692e749e4e6a4599d2b108277a582, type: 3}
   spriteRenderer: {fileID: 1210203530}
   deathSound: {fileID: 1236056495}
+  bulletPrefab: {fileID: 0}
+  shootingPoint: {fileID: 0}
+  shootInterval: 0.01
 --- !u!212 &1210203530
 SpriteRenderer:
   m_ObjectHideFlags: 0

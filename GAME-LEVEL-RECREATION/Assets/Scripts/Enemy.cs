@@ -13,6 +13,10 @@ public class Enemy : MonoBehaviour
     int numonArray; // for sprite
     public AudioSource deathSound;
 
+    public GameObject bulletPrefab;
+    public Transform shootingPoint;
+    public float shootInterval = 0.01f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +28,8 @@ public class Enemy : MonoBehaviour
 
         Vector2 targetPos = target.position; //placed it here so after shooting dead wont keep moving to base
           agent.SetDestination(targetPos);
+
+          InvokeRepeating("Shoot", 2.0f, 0.5f);
     }
 
     // Update is called once per frame
@@ -31,6 +37,7 @@ public class Enemy : MonoBehaviour
     {
        
         Vector2 currentPos = transform.position;
+
 
         if (agent.velocity.y >= 0 && Mathf.Abs(agent.velocity.x) < Mathf.Abs(agent.velocity.y))
         {
@@ -63,11 +70,11 @@ public class Enemy : MonoBehaviour
 
             agent.SetDestination(transform.position);
            DiedSprite();
-           Invoke("DiedSprite", 0.5f);
-            Invoke("DiedSprite", 1.0f);
+           Invoke("DiedSprite", 0.3f);
+            Invoke("DiedSprite", 0.5f);
+            Invoke("DiedSprite", 0.7f);
             deathSound.Play();
             
-     
         }
     }
 
@@ -77,9 +84,9 @@ public class Enemy : MonoBehaviour
              spriteRenderer.sprite = spriteArray[numonArray]; 
              numonArray++;
 
-             if (numonArray == 2)
+             if (numonArray == 3)
              {
-                  Invoke("DeadBoi", 0.5f);
+                  Invoke("DeadBoi", 0.3f);
              }
     
     }
@@ -87,4 +94,6 @@ public class Enemy : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+   
 }
