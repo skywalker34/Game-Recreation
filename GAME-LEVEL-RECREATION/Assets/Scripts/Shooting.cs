@@ -6,6 +6,7 @@ public class Shooting : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform shootingPoint;
     public float shootInterval = 0.01f;
+    public AudioSource shootingSound;
 
 
     void Update()
@@ -22,5 +23,6 @@ public class Shooting : MonoBehaviour
 
         Rigidbody2D rigidbody = bullet.GetComponent<Rigidbody2D>();
         rigidbody.velocity = player.shootingDirection * 10;
+        shootingSound.Play();
     }
 }

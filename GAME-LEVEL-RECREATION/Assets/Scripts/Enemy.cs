@@ -9,8 +9,9 @@ public class Enemy : MonoBehaviour
     public NavMeshAgent agent;
     public Vector2 shootingDirection;
     public Sprite[] spriteArray;  // for dead animation
-   public SpriteRenderer spriteRenderer;
-   int numonArray; // for sprite
+    public SpriteRenderer spriteRenderer;
+    int numonArray; // for sprite
+    public AudioSource deathSound;
 
     // Start is called before the first frame update
     void Start()
@@ -64,7 +65,7 @@ public class Enemy : MonoBehaviour
            DiedSprite();
            Invoke("DiedSprite", 0.5f);
             Invoke("DiedSprite", 1.0f);
-
+            deathSound.Play();
             
      
         }

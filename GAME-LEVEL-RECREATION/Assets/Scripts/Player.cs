@@ -9,12 +9,18 @@ public class Player : MonoBehaviour
 
     private Rigidbody2D rb;
     private Vector2 movement;
+    //public BoxCollider2D mycollider;
 
+    public bool isInvincible = false;
+    public float invincTime = 0f;
+
+    public AudioSource deathSound;
 
     void Start()
     {
         shootingDirection = Vector2.up;
         rb = GetComponent<Rigidbody2D>();
+        //mycollider = GetComponent<BoxCollider2D>();
     }
 
     void Update()
@@ -51,6 +57,20 @@ public class Player : MonoBehaviour
         //}
 
         if (movement.x != 0) movement.y = 0;
+
+        if (isInvincible)
+        {
+            //mycollider.enabled = false;
+            //mycollider.isTrigger = true;
+            invincTime -= Time.deltaTime;
+            if (invincTime <= 0)
+            {
+                isInvincible = false;
+                //mycollider.isTrigger = false;
+                //mycollider.enabled = true;
+            }
+
+        }
     }
 
     void FixedUpdate()
@@ -61,10 +81,19 @@ public class Player : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         rb.velocity = Vector2.zero;
+
+        //For when we inevitably include death.
+        //deathSound.Play();
     }
 
     void OnCollisionStay2D(Collision2D collision)
     {
         rb.velocity = Vector2.zero;
+    }
+    public void SetInvincibility(float duration)
+    {
+        isInvincible = true;
+
+        invincTime = duration;
     }
 }
