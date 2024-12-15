@@ -14,7 +14,7 @@ public class GameOverScene : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
-      SceneManager.LoadScene("StartScreen");
+            SceneManager.LoadScene("StartScreen");
         }
     }
 }

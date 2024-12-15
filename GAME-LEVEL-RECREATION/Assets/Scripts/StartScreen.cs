@@ -7,14 +7,14 @@ public class StartScreen : MonoBehaviour
 {
     public void StartGame()
     {
-        SceneManager.LoadScene("GameOver");
+        SceneManager.LoadScene("RealGame");
     }
 
     public void Update()
     {
         if (Input.GetKey(KeyCode.Space))
         {
-          SceneManager.LoadScene("RealGame");
+          SceneManager.LoadScene("StartScreen");
         }
     }
 }

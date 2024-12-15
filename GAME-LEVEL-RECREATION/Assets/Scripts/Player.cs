@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -82,8 +83,12 @@ public class Player : MonoBehaviour
     {
         rb.velocity = Vector2.zero;
 
-        //For when we inevitably include death.
-        //deathSound.Play();
+        if (collision.gameObject.tag == "EnemyBullet" && !isInvincible)
+        {
+            deathSound.Play();
+
+            SceneManager.LoadScene("GameOver");
+        }
     }
 
     void OnCollisionStay2D(Collision2D collision)

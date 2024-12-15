@@ -23,7 +23,7 @@ public class BreakableBlock : MonoBehaviour
     
      void OnCollisionEnter2D(Collision2D bullet)
     {
-        if (bullet.gameObject.tag == "Bullet") {
+        if (bullet.gameObject.tag == "Bullet" || bullet.gameObject.tag == "EnemyBullet") {
            
            hit++;
            if (hit == 2){

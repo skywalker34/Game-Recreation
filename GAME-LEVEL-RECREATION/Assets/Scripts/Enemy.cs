@@ -12,9 +12,10 @@ public class Enemy : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     int numonArray; // for sprite
     public AudioSource deathSound;
+    public bool isDead = false;
 
     public GameObject bulletPrefab;
-    public Transform shootingPoint;
+    //public Transform shootingPoint;
     public float shootInterval = 0.01f;
 
     // Start is called before the first frame update
@@ -29,7 +30,7 @@ public class Enemy : MonoBehaviour
         Vector2 targetPos = target.position; //placed it here so after shooting dead wont keep moving to base
           agent.SetDestination(targetPos);
 
-          InvokeRepeating("Shoot", 2.0f, 0.5f);
+          //InvokeRepeating("Shoot", 2.0f, 0.5f);
     }
 
     // Update is called once per frame
@@ -69,6 +70,7 @@ public class Enemy : MonoBehaviour
         if (bullet.gameObject.tag == "Bullet") {
 
             agent.SetDestination(transform.position);
+            isDead = true;
            DiedSprite();
            Invoke("DiedSprite", 0.3f);
             Invoke("DiedSprite", 0.5f);

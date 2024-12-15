@@ -9,18 +9,20 @@ public class EnemyShooting : MonoBehaviour
     public AudioSource shootingSound;
 
 
-    void Update()
+    void Start()
     {
         InvokeRepeating("Shoot", shootInterval, shootInterval);
     }
 
     void Shoot()
     {
+        if(!enemy.isDead)
+        {
+            GameObject bullet = Instantiate(bulletPrefab, shootingPoint.position, Quaternion.identity);
 
-        GameObject bullet = Instantiate(bulletPrefab, shootingPoint.position, Quaternion.identity);
-
-        Rigidbody2D rigidbody = bullet.GetComponent<Rigidbody2D>();
-        rigidbody.velocity = enemy.shootingDirection * 10;
-        shootingSound.Play();
+            Rigidbody2D rigidbody = bullet.GetComponent<Rigidbody2D>();
+            rigidbody.velocity = enemy.shootingDirection * 10;
+            shootingSound.Play();
+        }
     }
 }
